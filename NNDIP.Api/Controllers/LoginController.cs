@@ -26,7 +26,7 @@ namespace NNDIP.Api.Controllers
 
         [HttpPost]
         [SwaggerOperation(OperationId = "PostLogin")]
-        public async Task<IActionResult> PostLogin(LoginDto loginDto)
+        public async Task<ActionResult<TokenDto>> PostLogin(LoginDto loginDto)
         {
             User user = await _repositoryWrapper.UserRepository.GetByUsernameAndPasswordAsync(loginDto.Username, loginDto.Password);
 
@@ -53,7 +53,7 @@ namespace NNDIP.Api.Controllers
                     expires: DateTime.UtcNow.AddDays(DotNetEnv.Env.GetDouble(_configuration["JWTCONFIG:EXPIRATION"])),
                     signingCredentials: signIn);
 
-                return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+                return Ok(new TokenDto { Token = new JwtSecurityTokenHandler().WriteToken(token) });
             }
             else
             {
