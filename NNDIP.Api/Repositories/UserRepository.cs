@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.CodeAnalysis.Scripting;
+using Microsoft.EntityFrameworkCore;
 using NNDIP.Api.Entities;
 using NNDIP.Api.NNDIPDbContext;
 using NNDIP.Api.Repositories.Interfaces;
+using Sprache;
 
 namespace NNDIP.Api.Repositories
 {
@@ -18,7 +20,16 @@ namespace NNDIP.Api.Repositories
 
         public async Task<User> GetByUsernameAndPasswordAsync(string username, string password)
         {
-            return await _context.Users.FirstOrDefaultAsync(result => result.Username == username && result.HashedPassword == password);
+            User? user = await _context.Users.FirstOrDefaultAsync(result => result.Username == username);
+            if (user is not null)
+            {
+                //TODO
+                if (/*BCrypt.Net.BCrypt.Verify(password, user.HashedPassword*/true)
+                {
+                    return user;
+                } 
+            }
+            return user;
         }
 
         public IEnumerable<UserRole> GetUserRoles(long userId)
