@@ -30,7 +30,7 @@ namespace NNDIP.Api.Controllers
             return _mapper.Map<IEnumerable<AddressStateDto>>(addressStates).ToList();
         }
 
-        [HttpGet("/results")]
+        [HttpGet("results")]
         [SwaggerOperation(OperationId = "GetAddressResults")]
         public async Task<ActionResult<AddressStateResultDto>> GetAddressResults()
         {
