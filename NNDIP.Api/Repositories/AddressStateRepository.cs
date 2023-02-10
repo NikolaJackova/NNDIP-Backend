@@ -46,9 +46,14 @@ namespace NNDIP.Api.Repositories
             addressStateResultDto.IsACUnitOn = IsAcUnitOn(GetAddressStateByActionName(AC_UNIT));
             if (addressStateResultDto.IsACUnitOn)
             {
+                addressStateResultDto.IsFanOn = true;
                 addressStateResultDto.ACUnitMode = SetACUnitMode(GetAddressStateByActionName(AC_UNIT_MODE));
                 addressStateResultDto.ACTemperature = SetACTemperature(GetAddressStateByActionName(AC_TEMPERATURE));
                 addressStateResultDto.ACUnitFanSpeed = SetACUnitFanSpeed(GetAddressStateByActionName(AC_UNIT_FAN_SPEED));
+            }
+            else
+            {
+                addressStateResultDto.IsFanOn = false;
             }
             return addressStateResultDto;
         }
