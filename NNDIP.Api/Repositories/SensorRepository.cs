@@ -1,4 +1,5 @@
-﻿using NNDIP.Api.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using NNDIP.Api.Entities;
 using NNDIP.Api.NNDIPDbContext;
 using NNDIP.Api.Repositories.Interfaces;
 

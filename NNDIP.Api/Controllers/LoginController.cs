@@ -50,7 +50,7 @@ namespace NNDIP.Api.Controllers
                     _configuration["JWTCONFIG:ISSUER"],
                     _configuration["JWTCONFIG:AUDIENCE"],
                     claims,
-                    expires: DateTime.UtcNow.AddDays(DotNetEnv.Env.GetDouble(_configuration["JWTCONFIG:EXPIRATION"])),
+                    expires: DateTime.UtcNow.AddMinutes(DotNetEnv.Env.GetDouble(_configuration["JWTCONFIG:EXPIRATION"])),
                     signingCredentials: signIn);
 
                 return Ok(new TokenDto { Token = new JwtSecurityTokenHandler().WriteToken(token) });

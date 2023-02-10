@@ -15,7 +15,7 @@ namespace NNDIP.Api.Repositories
 {
     public class AddressStateRepository : GenericRepository<AddressState>, IAddressStateRepository
     {
-        private const string AC_UNIT = "AC unit";
+        private const string AC_UNIT = "AC unit -";
         private const string AC_UNIT_MODE = "AC unit Mode";
         private const string AC_UNIT_FAN_SPEED = "AC unit Fan Speed";
         private const string RECUPERATION = "Recuperation";
@@ -44,12 +44,12 @@ namespace NNDIP.Api.Repositories
             AddressStateResultDto addressStateResultDto = new AddressStateResultDto();
             addressStateResultDto.IsRecuperationOn = IsRecuperationOn(GetAddressStateByActionName(RECUPERATION));
             addressStateResultDto.IsACUnitOn = IsAcUnitOn(GetAddressStateByActionName(AC_UNIT));
+            addressStateResultDto.ACUnitMode = SetACUnitMode(GetAddressStateByActionName(AC_UNIT_MODE));
+            addressStateResultDto.ACTemperature = SetACTemperature(GetAddressStateByActionName(AC_TEMPERATURE));
+            addressStateResultDto.ACUnitFanSpeed = SetACUnitFanSpeed(GetAddressStateByActionName(AC_UNIT_FAN_SPEED));
             if (addressStateResultDto.IsACUnitOn)
             {
                 addressStateResultDto.IsFanOn = true;
-                addressStateResultDto.ACUnitMode = SetACUnitMode(GetAddressStateByActionName(AC_UNIT_MODE));
-                addressStateResultDto.ACTemperature = SetACTemperature(GetAddressStateByActionName(AC_TEMPERATURE));
-                addressStateResultDto.ACUnitFanSpeed = SetACUnitFanSpeed(GetAddressStateByActionName(AC_UNIT_FAN_SPEED));
             }
             else
             {
