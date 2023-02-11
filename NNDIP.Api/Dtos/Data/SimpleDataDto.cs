@@ -6,6 +6,7 @@ namespace NNDIP.Api.Dtos.Data
     {
         public SensorDataType Type { get; set; }
         public string TypeName { get => Type.ToString(); }
+        public string UnitMeas { get; set; } = null!;
         public double? Value { get; set; }
     }
 }

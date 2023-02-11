@@ -60,7 +60,8 @@ namespace NNDIP.Api.Controllers
                     sensorsDataDto.Data.Add(new Dtos.Data.SimpleDataDto()
                     {
                         Type = Enums.SensorDataType.CO2,
-                        Value = dataItem.Co2
+                        Value = dataItem.Co2,
+                        UnitMeas = "ppm"
                     });
                 }
                 if (dataItem.Humidity is not null)
@@ -68,7 +69,8 @@ namespace NNDIP.Api.Controllers
                     sensorsDataDto.Data.Add(new Dtos.Data.SimpleDataDto()
                     {
                         Type = Enums.SensorDataType.HUMIDITY,
-                        Value = dataItem.Humidity
+                        Value = dataItem.Humidity,
+                        UnitMeas = "%"
                     });
                 }
                 if (dataItem.Temperature is not null)
@@ -76,7 +78,8 @@ namespace NNDIP.Api.Controllers
                     sensorsDataDto.Data.Add(new Dtos.Data.SimpleDataDto()
                     {
                         Type = Enums.SensorDataType.TEMPERATURE,
-                        Value = dataItem.Temperature
+                        Value = dataItem.Temperature,
+                        UnitMeas = "°C"
                     });
                 }
                 sensorsDataDtos.Add(sensorsDataDto);
