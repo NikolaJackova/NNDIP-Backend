@@ -54,7 +54,7 @@ namespace NNDIP.Api.Controllers
                     DataTimestamp = dataItem.DataTimestamp
                 };
 
-                //refactor?? 
+                //refactor??
                 if (dataItem.Co2 is not null)
                 {
                     sensorsDataDto.Data.Add(new Dtos.Data.SimpleDataDto()

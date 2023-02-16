@@ -52,7 +52,7 @@ namespace NNDIP.Api.Controllers
                     claims,
                     expires: DateTime.UtcNow.AddMinutes(DotNetEnv.Env.GetDouble(_configuration["JWTCONFIG:EXPIRATION"])),
                     signingCredentials: signIn);
-
+                Console.WriteLine(token.ValidTo);
                 return Ok(new TokenDto { Token = new JwtSecurityTokenHandler().WriteToken(token) });
             }
             else
