@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NJsonSchema.Annotations;
 using NNDIP.Api.Dtos.Plan.LimitPlan;
 using NNDIP.Api.Dtos.Sensor;
 using NNDIP.Api.Dtos.YearPeriod;
@@ -16,6 +18,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace NNDIP.Api.Controllers
 {
+    [Authorize]
     [Route("api/limit-plan")]
     [ApiController]
     public class LimitPlanController : ControllerBase
@@ -98,7 +101,8 @@ namespace NNDIP.Api.Controllers
 
         [HttpPut("settings")]
         [SwaggerOperation(OperationId = "PutLimitPlanSettings")]
-        public async Task<IActionResult> PutLimitPlanSettings(LimitPlanSettings limitPlanSettings)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult?> PutLimitPlanSettings(LimitPlanSettings limitPlanSettings)
         {
             YearPeriod yearPeriod = _repositoryWrapper.YearPeriodRepository.GetById(limitPlanSettings.YearPeriodDto.Id);
             _repositoryWrapper.YearPeriodRepository.Update(_mapper.Map(_mapper.Map<UpdateYearPeriodDto>(limitPlanSettings.YearPeriodDto), yearPeriod));

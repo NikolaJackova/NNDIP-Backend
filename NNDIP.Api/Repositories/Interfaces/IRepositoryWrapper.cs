@@ -19,6 +19,10 @@ namespace NNDIP.Api.Repositories.Interfaces
         IEventRepository EventRepository { get; }
 
         IPlanRepository PlanRepository { get; }
+
+        ITimePlanRepository TimePlanRepository { get; }
+
+        IManualPlanRepository ManualPlanRepository { get; }
         Task SaveAsync();
         void Save();
     }

@@ -86,6 +86,26 @@ namespace NNDIP.Api.Repositories
             }
         }
 
+        private ITimePlanRepository _timePlanRepository;
+        public ITimePlanRepository TimePlanRepository
+        {
+            get
+            {
+                _timePlanRepository ??= new TimePlanRepository(_context);
+                return _timePlanRepository;
+            }
+        }
+
+        private IManualPlanRepository _manualPlanRepository;
+        public IManualPlanRepository ManualPlanRepository
+        {
+            get
+            {
+                _manualPlanRepository ??= new ManualPlanRepository(_context);
+                return _manualPlanRepository;
+            }
+        }
+
         protected readonly NndipDbContext _context;
         public RepositoryWrapper(NndipDbContext context)
         {
