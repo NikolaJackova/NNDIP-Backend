@@ -59,6 +59,13 @@ namespace NNDIP.Api.Controllers
             return _mapper.Map<LimitPlanDto>(limitPlan);
         }
 
+        [HttpGet("settings")]
+        [SwaggerOperation(OperationId = "GetLimitPlanSettings")]
+        public async Task<ActionResult<LimitPlanSettings>> GetLimitPlanSettings()
+        {
+            return await _repositoryWrapper.LimitPlanRepository.GetLimitPlanSettingsAsync();
+        }
+
         [HttpPut("{id}")]
         [SwaggerOperation(OperationId = "PutLimitPlan")]
         public async Task<IActionResult> PutLimitPlan(long id, UpdateLimitPlanDto updateLimitPlanDto)
@@ -87,6 +94,47 @@ namespace NNDIP.Api.Controllers
             }
 
             return NoContent();
+        }
+
+        [HttpPut("settings")]
+        [SwaggerOperation(OperationId = "PutLimitPlanSettings")]
+        public async Task<IActionResult> PutLimitPlanSettings(LimitPlanSettings limitPlanSettings)
+        {
+            YearPeriod yearPeriod = _repositoryWrapper.YearPeriodRepository.GetById(limitPlanSettings.YearPeriodDto.Id);
+            _repositoryWrapper.YearPeriodRepository.Update(_mapper.Map(_mapper.Map<UpdateYearPeriodDto>(limitPlanSettings.YearPeriodDto), yearPeriod));
+
+            _repositoryWrapper.LimitPlanRepository.Update(GetModifiedLimitPlan(limitPlanSettings.TemperatureLow, limitPlanSettings.OptimalValueTemperature));
+            _repositoryWrapper.LimitPlanRepository.Update(GetModifiedLimitPlan(limitPlanSettings.TemperatureHigh, limitPlanSettings.OptimalValueTemperature));
+            _repositoryWrapper.LimitPlanRepository.Update(GetModifiedLimitPlan(limitPlanSettings.Co2, limitPlanSettings.OptimalValueCo2));
+
+            _repositoryWrapper.PlanRepository.Update(GetModifiedPlan(limitPlanSettings.TemperatureLow));
+            _repositoryWrapper.PlanRepository.Update(GetModifiedPlan(limitPlanSettings.TemperatureHigh));
+            _repositoryWrapper.PlanRepository.Update(GetModifiedPlan(limitPlanSettings.Co2));
+            try
+            {
+                await _repositoryWrapper.SaveAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
+            return NoContent();
+        }
+
+        private LimitPlan GetModifiedLimitPlan(Threshold threshold, double optimalValue)
+        {
+            LimitPlan limitPlan = _repositoryWrapper.LimitPlanRepository.GetById(threshold.Id);
+            limitPlan.OptimalValue = optimalValue;
+            limitPlan.ThresholdValue = threshold.Value;
+            return limitPlan;
+        }
+
+        private Plan GetModifiedPlan(Threshold threshold)
+        {
+            Plan plan = _repositoryWrapper.PlanRepository.GetById(threshold.Id);
+            plan.Enabled = threshold.Enabled;
+            plan.EventId = threshold.EventId;
+            return plan;
         }
     }
 }

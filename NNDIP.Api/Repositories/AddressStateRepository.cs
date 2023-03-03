@@ -15,6 +15,7 @@ namespace NNDIP.Api.Repositories
 {
     public class AddressStateRepository : GenericRepository<AddressState>, IAddressStateRepository
     {
+        //TODO
         private const string AC_UNIT = "AC unit -";
         private const string AC_UNIT_MODE = "AC unit Mode";
         private const string AC_UNIT_FAN_SPEED = "AC unit Fan Speed";
@@ -27,21 +28,21 @@ namespace NNDIP.Api.Repositories
             addressStates = new List<AddressState>();
         }
 
-        public AddressStateResultDto GetAddressStateResult()
+        public AddressStateResult GetAddressStateResult()
         {
             addressStates = _context.AddressStates.ToList();
             return CreateAddressStateResult();
         }
 
-        public async Task<AddressStateResultDto> GetAddressStateResultAsync()
+        public async Task<AddressStateResult> GetAddressStateResultAsync()
         {
             addressStates = await _context.AddressStates.ToListAsync();
             return CreateAddressStateResult();
         }
 
-        private AddressStateResultDto CreateAddressStateResult()
+        private AddressStateResult CreateAddressStateResult()
         {
-            AddressStateResultDto addressStateResultDto = new AddressStateResultDto();
+            AddressStateResult addressStateResultDto = new AddressStateResult();
             addressStateResultDto.IsRecuperationOn = IsRecuperationOn(GetAddressStateByActionName(RECUPERATION));
             addressStateResultDto.IsACUnitOn = IsAcUnitOn(GetAddressStateByActionName(AC_UNIT));
             addressStateResultDto.ACUnitMode = SetACUnitMode(GetAddressStateByActionName(AC_UNIT_MODE));

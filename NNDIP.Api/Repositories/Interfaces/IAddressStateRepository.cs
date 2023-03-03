@@ -5,7 +5,7 @@ namespace NNDIP.Api.Repositories.Interfaces
 {
     public interface IAddressStateRepository : IGenericRepository<AddressState>
     {
-        AddressStateResultDto GetAddressStateResult();
-        Task<AddressStateResultDto> GetAddressStateResultAsync();
+        AddressStateResult GetAddressStateResult();
+        Task<AddressStateResult> GetAddressStateResultAsync();
     }
 }

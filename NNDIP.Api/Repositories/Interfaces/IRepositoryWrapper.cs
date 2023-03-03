@@ -15,6 +15,10 @@ namespace NNDIP.Api.Repositories.Interfaces
         ILimitPlanRepository LimitPlanRepository { get; }
 
         IAddressStateRepository AddressStateRepository { get; }
+
+        IEventRepository EventRepository { get; }
+
+        IPlanRepository PlanRepository { get; }
         Task SaveAsync();
         void Save();
     }

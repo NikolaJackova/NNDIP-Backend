@@ -32,7 +32,7 @@ namespace NNDIP.Api.Controllers
 
         [HttpGet("results")]
         [SwaggerOperation(OperationId = "GetAddressResults")]
-        public async Task<ActionResult<AddressStateResultDto>> GetAddressResults()
+        public async Task<ActionResult<AddressStateResult>> GetAddressResults()
         {
             return await _repositoryWrapper.AddressStateRepository.GetAddressStateResultAsync();
         }

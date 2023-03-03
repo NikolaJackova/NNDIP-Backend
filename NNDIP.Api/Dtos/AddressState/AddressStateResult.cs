@@ -1,6 +1,6 @@
 ﻿namespace NNDIP.Api.Dtos.AddressState
 {
-    public class AddressStateResultDto
+    public class AddressStateResult
     {
         public bool IsACUnitOn { get; set; }
         public bool IsFanOn { get; set; }

@@ -65,6 +65,27 @@ namespace NNDIP.Api.Repositories
             }
         }
 
+        private IEventRepository _eventRepository;
+        public IEventRepository EventRepository
+        {
+            get
+            {
+                _eventRepository ??= new EventRepository(_context);
+                return _eventRepository;
+            }
+        }
+
+
+        private IPlanRepository _planRepository;
+        public IPlanRepository PlanRepository
+        {
+            get
+            {
+                _planRepository ??= new PlanRepository(_context);
+                return _planRepository;
+            }
+        }
+
         protected readonly NndipDbContext _context;
         public RepositoryWrapper(NndipDbContext context)
         {

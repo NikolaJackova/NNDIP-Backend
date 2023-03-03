@@ -16,6 +16,7 @@ namespace NNDIP.Api.Profiles
         {
             CreateMap<AddressState, AddressStateDto>();
             CreateMap<Event, EventDto>();
+            CreateMap<Event, SimpleEventDto>();
             CreateMap<Data, DataDto>();
             CreateMap<LimitPlan, LimitPlanDto>();
             CreateMap<UpdateLimitPlanDto, LimitPlan>();
@@ -24,6 +25,7 @@ namespace NNDIP.Api.Profiles
             CreateMap<Sensor, SensorDto>();
             CreateMap<YearPeriod, YearPeriodDto>();
             CreateMap<YearPeriod, SimpleYearPeriodDto>();
+            CreateMap<SimpleYearPeriodDto, UpdateYearPeriodDto>();
             CreateMap<UpdateYearPeriodDto, YearPeriod>();
         }
     }
