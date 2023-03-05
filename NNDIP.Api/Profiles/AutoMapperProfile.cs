@@ -15,6 +15,8 @@ namespace NNDIP.Api.Profiles
     {
         public AutoMapperProfile()
         {
+            CreateMap<AddTimePlanDto, TimePlan>();
+            CreateMap<AddPlanDto, Plan>();
             CreateMap<AddressState, AddressStateDto>();
             CreateMap<Event, EventDto>();
             CreateMap<Event, SimpleEventDto>();

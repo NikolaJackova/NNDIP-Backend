@@ -13,42 +13,42 @@ namespace NNDIP.Api.Repositories
             _context = context;
         }
 
-        public void Add(T entity)
+        public virtual void Add(T entity)
         {
             _context.Set<T>().Add(entity);
         }
 
-        public async void AddAsync(T entity)
+        public virtual async void AddAsync(T entity)
         {
             await _context.Set<T>().AddAsync(entity);
         }
 
-        public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
+        public virtual IEnumerable<T> Find(Expression<Func<T, bool>> expression)
         {
             return _context.Set<T>().Where(expression);
         }
 
-        public IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             return _context.Set<T>().ToList();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();
         }
 
-        public T GetById(long id)
+        public virtual T GetById(long id)
         {
             return _context.Set<T>().Find(id);
         }
 
-        public async Task<T> GetByIdAsync(long id)
+        public virtual async Task<T> GetByIdAsync(long id)
         {
             return await _context.Set<T>().FindAsync(id);
         }
 
-        public void Remove(T entity)
+        public virtual void Remove(T entity)
         {
             _context.Set<T>().Remove(entity);
         }
