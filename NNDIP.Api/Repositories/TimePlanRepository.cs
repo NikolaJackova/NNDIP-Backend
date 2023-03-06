@@ -33,7 +33,7 @@ namespace NNDIP.Api.Repositories
 
         public override void Add(TimePlan timePlan)
         {
-            if (string.Empty == timePlan.IdNavigation.PlanType)
+            if (timePlan.IdNavigation.PlanType == string.Empty )
             {
                 timePlan.IdNavigation.PlanType = EnumExtender.GetEnumDescription(PlanType.TIME_PLAN);
             }
@@ -42,17 +42,17 @@ namespace NNDIP.Api.Repositories
 
         public override void AddAsync(TimePlan timePlan)
         {
-            if (string.Empty == timePlan.IdNavigation.PlanType)
+            if (timePlan.IdNavigation.PlanType == string.Empty)
             {
                 timePlan.IdNavigation.PlanType = EnumExtender.GetEnumDescription(PlanType.TIME_PLAN);
             }
             base.AddAsync(timePlan);
         }
 
-        public override void Remove(TimePlan entity)
+        public override void Remove(TimePlan timePlan)
         {
-            base.Remove(entity);
-            _context.Plans.Remove(entity.IdNavigation);
+            base.Remove(timePlan);
+            _context.Plans.Remove(timePlan.IdNavigation);
         }
 
         public bool TimePlanExists(long id)

@@ -1,6 +1,6 @@
 ﻿namespace NNDIP.Api.Enums
 {
-    public enum YearPeriodEnum
+    public enum YearPeriodType
     {
         SUMMER,
         WINTER

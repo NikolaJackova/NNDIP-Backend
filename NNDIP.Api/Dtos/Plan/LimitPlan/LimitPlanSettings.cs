@@ -15,7 +15,7 @@ namespace NNDIP.Api.Dtos.Plan.LimitPlan
         {
             get
             {
-                return YearPeriodDto.Name == EnumExtender.GetEnumDescription(YearPeriodEnum.WINTER);
+                return YearPeriodDto.Name == EnumExtender.GetEnumDescription(YearPeriodType.WINTER);
             }
         }
 
@@ -23,7 +23,7 @@ namespace NNDIP.Api.Dtos.Plan.LimitPlan
         {
             get
             {
-                return YearPeriodDto.Name == EnumExtender.GetEnumDescription(YearPeriodEnum.SUMMER);
+                return YearPeriodDto.Name == EnumExtender.GetEnumDescription(YearPeriodType.SUMMER);
             }
         }
     }

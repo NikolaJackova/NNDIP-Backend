@@ -75,6 +75,32 @@ namespace NNDIP.Api.Controllers
 
             return NoContent();
         }
+        [HttpPost]
+        [SwaggerOperation(OperationId = "PostManualPlan")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public async Task<ActionResult<TimePlanDto>> PostManualPlan(AddManualPlanDto addManualPlanDto)
+        {
+            _repositoryWrapper.ManualPlanRepository.AddAsync(_mapper.Map<ManualPlan>(addManualPlanDto));
+            await _repositoryWrapper.SaveAsync();
 
+            return CreatedAtAction("PostManualPlan", new { id = addManualPlanDto.Id }, addManualPlanDto);
+        }
+
+        [HttpDelete("{id}")]
+        [SwaggerOperation(OperationId = "DeleteManualPlan")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> DeleteManualPlan(long id)
+        {
+            ManualPlan manualPlan = await _repositoryWrapper.ManualPlanRepository.GetByIdAsync(id);
+            if (manualPlan == null)
+            {
+                return NotFound();
+            }
+
+            _repositoryWrapper.ManualPlanRepository.Remove(manualPlan);
+            await _repositoryWrapper.SaveAsync();
+
+            return NoContent();
+        }
     }
 }

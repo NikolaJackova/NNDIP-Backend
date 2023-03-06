@@ -7,6 +7,6 @@
         public string Name { get; set; } = null!;
         public long EventId { get; set; }
         public int? Priority { get; set; }
-        public string PlanType { get; set; } = null!;
+        public string PlanType { get; set; } = "";
     }
 }

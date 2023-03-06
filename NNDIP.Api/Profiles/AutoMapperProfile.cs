@@ -34,6 +34,7 @@ namespace NNDIP.Api.Profiles
             CreateMap<UpdateYearPeriodDto, YearPeriod>();
             CreateMap<ManualPlan, ManualPlanDto>();
             CreateMap<UpdateManualPlanDto, ManualPlan>();
+            CreateMap<AddManualPlanDto, ManualPlan>();
         }
     }
 }
