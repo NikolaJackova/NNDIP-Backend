@@ -31,18 +31,33 @@ namespace NNDIP.Api.Repositories
             return await _context.TimePlans.Include(timePlan => timePlan.IdNavigation).SingleOrDefaultAsync(item => item.Id == id);
         }
 
-        public override void Update(TimePlan entity)
+        public override void Add(TimePlan timePlan)
         {
-            if (string.Empty == entity.IdNavigation.PlanType)
+            if (string.Empty == timePlan.IdNavigation.PlanType)
             {
-                entity.IdNavigation.PlanType = EnumExtender.GetEnumDescription(Enums.PlanType.TIME_PLAN);
+                timePlan.IdNavigation.PlanType = EnumExtender.GetEnumDescription(PlanType.TIME_PLAN);
             }
-            base.Update(entity);
+            base.Add(timePlan);
         }
+
+        public override void AddAsync(TimePlan timePlan)
+        {
+            if (string.Empty == timePlan.IdNavigation.PlanType)
+            {
+                timePlan.IdNavigation.PlanType = EnumExtender.GetEnumDescription(PlanType.TIME_PLAN);
+            }
+            base.AddAsync(timePlan);
+        }
+
         public override void Remove(TimePlan entity)
         {
             base.Remove(entity);
             _context.Plans.Remove(entity.IdNavigation);
+        }
+
+        public bool TimePlanExists(long id)
+        {
+            return _context.TimePlans.Any(e => e.Id == id);
         }
     }
 }

@@ -4,5 +4,6 @@ namespace NNDIP.Api.Repositories.Interfaces
 {
     public interface ITimePlanRepository : IGenericRepository<TimePlan>
     {
+        bool TimePlanExists(long id);
     }
 }

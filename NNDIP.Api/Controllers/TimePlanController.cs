@@ -62,7 +62,7 @@ namespace NNDIP.Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!_repositoryWrapper.LimitPlanRepository.LimitPlanExists(id))
+                if (!_repositoryWrapper.TimePlanRepository.TimePlanExists(id))
                 {
                     return NotFound();
                 }
