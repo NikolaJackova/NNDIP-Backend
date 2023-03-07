@@ -62,7 +62,8 @@ namespace NNDIP.Api.Controllers
 
         [HttpPut("{id}")]
         [SwaggerOperation(OperationId = "PutYearPeriod")]
-        public async Task<IActionResult> PutYearPeriod(int id, UpdateYearPeriodDto updateYearPeriodDto)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> PutYearPeriod(long id, UpdateYearPeriodDto updateYearPeriodDto)
         {
             if (id != updateYearPeriodDto.Id)
             {
@@ -85,7 +86,6 @@ namespace NNDIP.Api.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
@@ -50,7 +51,7 @@ namespace NNDIP.Api.Controllers
                     _configuration["JWTCONFIG:ISSUER"],
                     _configuration["JWTCONFIG:AUDIENCE"],
                     claims,
-                    expires: DateTime.UtcNow.AddMinutes(DotNetEnv.Env.GetDouble(_configuration["JWTCONFIG:EXPIRATION"])),
+                    expires: DateTime.UtcNow.AddMinutes(Convert.ToDouble(_configuration["JWTCONFIG:EXPIRATION"])),
                     signingCredentials: signIn);
                 Console.WriteLine(token.ValidTo);
                 return Ok(new TokenDto { Token = new JwtSecurityTokenHandler().WriteToken(token) });

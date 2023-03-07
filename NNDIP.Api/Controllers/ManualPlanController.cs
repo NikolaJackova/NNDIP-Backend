@@ -48,6 +48,7 @@ namespace NNDIP.Api.Controllers
 
         [HttpPut("{id}")]
         [SwaggerOperation(OperationId = "PutManualPlan")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> PutTimePlan(long id, UpdateManualPlanDto updateManualPlanDto)
         {
             if (id != updateManualPlanDto.Id)

@@ -25,7 +25,7 @@ namespace NNDIP.Api.Controllers
 
         [HttpGet]
         [SwaggerOperation(OperationId = "GetEvents")]
-        public async Task<ActionResult<IEnumerable<SimpleEventDto>>> GetSensors()
+        public async Task<ActionResult<IEnumerable<SimpleEventDto>>> GetEvents()
         {
             IEnumerable<Event> events = await _repositoryWrapper.EventRepository.GetAllAsync();
             return _mapper.Map<IEnumerable<SimpleEventDto>>(events).ToList();
