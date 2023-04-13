@@ -64,7 +64,6 @@ builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
 builder.Services.AddDbContext<NndipDbContext>(options =>
 {
-    //options.UseMySql(builder.Configuration.GetConnectionString("dbconn"), ServerVersion.Parse("8.0.28-mysql"));
     options.UseMySql(builder.Configuration["CONNECTIONSTRING:NNDIPDBCONN"], ServerVersion.Parse("8.0.28-mysql"));
 });
 
