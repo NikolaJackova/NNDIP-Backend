@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace NNDIP.Api.Repositories.Interfaces
+﻿namespace NNDIP.Api.Repositories.Interfaces
 {
     public interface IRepositoryWrapper
     {

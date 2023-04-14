@@ -1,6 +1,4 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-
-namespace NNDIP.Api.Dtos.Authentication
+﻿namespace NNDIP.Api.Dtos.Authentication
 {
     public class TokenDto
     {

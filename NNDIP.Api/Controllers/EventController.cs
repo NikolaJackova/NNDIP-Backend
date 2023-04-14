@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NNDIP.Api.Dtos.Event;
-using NNDIP.Api.Dtos.Sensor;
 using NNDIP.Api.Entities;
 using NNDIP.Api.Repositories.Interfaces;
 using Swashbuckle.AspNetCore.Annotations;

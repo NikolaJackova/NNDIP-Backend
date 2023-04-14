@@ -1,21 +1,14 @@
-﻿using Microsoft.CodeAnalysis.VisualBasic.Syntax;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Extensions;
-using Newtonsoft.Json.Linq;
+﻿using Microsoft.EntityFrameworkCore;
 using NNDIP.Api.Dtos.AddressState;
 using NNDIP.Api.Entities;
 using NNDIP.Api.Enums;
 using NNDIP.Api.NNDIPDbContext;
 using NNDIP.Api.Repositories.Interfaces;
-using System;
-using System.ComponentModel;
-using System.Reflection;
 
 namespace NNDIP.Api.Repositories
 {
     public class AddressStateRepository : GenericRepository<AddressState>, IAddressStateRepository
     {
-        //TODO
         private const string AC_UNIT = "AC unit -";
         private const string AC_UNIT_MODE = "AC unit Mode";
         private const string AC_UNIT_FAN_SPEED = "AC unit Fan Speed";

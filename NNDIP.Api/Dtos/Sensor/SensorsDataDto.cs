@@ -1,6 +1,4 @@
 ﻿using NNDIP.Api.Dtos.Data;
-using NNDIP.Api.Dtos.Plan.LimitPlan;
-using NNDIP.Api.Entities;
 
 namespace NNDIP.Api.Dtos.Sensor
 {

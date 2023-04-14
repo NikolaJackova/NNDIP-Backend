@@ -1,13 +1,10 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
-using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using NNDIP.Api.Dtos.Authentication;
 using NNDIP.Api.Entities;
-using NNDIP.Api.NNDIPDbContext;
 using NNDIP.Api.Repositories.Interfaces;
 using Swashbuckle.AspNetCore.Annotations;
 

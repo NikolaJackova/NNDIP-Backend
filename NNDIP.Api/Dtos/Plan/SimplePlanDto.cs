@@ -1,7 +1,4 @@
-﻿using NNDIP.Api.Dtos.Event;
-using NNDIP.Api.Entities;
-
-namespace NNDIP.Api.Dtos.Plan
+﻿namespace NNDIP.Api.Dtos.Plan
 {
     public class SimplePlanDto
     {

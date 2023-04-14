@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NNDIP.Api.Dtos.YearPeriod;
 using NNDIP.Api.Entities;
 using NNDIP.Api.NNDIPDbContext;
 using NNDIP.Api.Repositories.Interfaces;

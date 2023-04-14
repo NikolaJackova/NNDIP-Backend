@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NNDIP.Api.NNDIPDbContext;
 using NNDIP.Api.Entities;
 using NNDIP.Api.Dtos.YearPeriod;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
-using NNDIP.Api.Repositories;
 using NNDIP.Api.Repositories.Interfaces;
 using Swashbuckle.AspNetCore.Annotations;
 

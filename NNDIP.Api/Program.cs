@@ -1,14 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using NNDIP.Api.NNDIPDbContext;
-using NNDIP.Api.Controllers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
 using NNDIP.Api.Repositories.Interfaces;
 using NNDIP.Api.Repositories;
-using Microsoft.Extensions.Options;
-using System.Collections;
 
 DotNetEnv.Env.Load();
 var builder = WebApplication.CreateBuilder(args);

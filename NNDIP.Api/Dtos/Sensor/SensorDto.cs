@@ -1,8 +1,4 @@
-﻿using Newtonsoft.Json;
-using NNDIP.Api.Dtos.Data;
-using NNDIP.Api.Entities;
-
-namespace NNDIP.Api.Dtos.Sensor
+﻿namespace NNDIP.Api.Dtos.Sensor
 {
     public class SensorDto
     {

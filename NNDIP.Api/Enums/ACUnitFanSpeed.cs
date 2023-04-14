@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace NNDIP.Api.Enums
+﻿namespace NNDIP.Api.Enums
 {
     public enum ACUnitFanSpeed
     {

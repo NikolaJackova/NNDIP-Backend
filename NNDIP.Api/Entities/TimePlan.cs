@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace NNDIP.Api.Entities
+﻿namespace NNDIP.Api.Entities
 {
     public partial class TimePlan
     {

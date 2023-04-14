@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NJsonSchema.Annotations;
 using NNDIP.Api.Dtos.Plan.LimitPlan;
-using NNDIP.Api.Dtos.Sensor;
 using NNDIP.Api.Dtos.YearPeriod;
 using NNDIP.Api.Entities;
-using NNDIP.Api.NNDIPDbContext;
 using NNDIP.Api.Repositories.Interfaces;
 using Swashbuckle.AspNetCore.Annotations;
 

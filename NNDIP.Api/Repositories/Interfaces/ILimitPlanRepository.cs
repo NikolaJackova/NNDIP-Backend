@@ -1,5 +1,4 @@
-﻿using NNDIP.Api.Dtos.AddressState;
-using NNDIP.Api.Dtos.Plan.LimitPlan;
+﻿using NNDIP.Api.Dtos.Plan.LimitPlan;
 using NNDIP.Api.Entities;
 
 namespace NNDIP.Api.Repositories.Interfaces
