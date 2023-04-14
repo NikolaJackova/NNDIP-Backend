@@ -22,13 +22,12 @@ namespace NNDIP.Api.Repositories
             User? user = await _context.Users.FirstOrDefaultAsync(result => result.Username == username);
             if (user is not null)
             {
-                //TODO
-                if (/*BCrypt.Net.BCrypt.Verify(password, user.HashedPassword*/true)
+                if (BCrypt.Net.BCrypt.Verify(password, user.HashedPassword))
                 {
                     return user;
                 } 
             }
-            return user;
+            return null;
         }
 
         public IEnumerable<UserRole> GetUserRoles(long userId)
